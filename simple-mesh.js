@@ -23,7 +23,7 @@ var SimpleMesh = function( opts ) {
 		fog : false,
 		origin : { x:0, y:0, z:0 },
 		theta : { x:0, y:0, z:0 }, // Rotation angles in +/- degrees
-    velocity: { x:0, y:0 }, // Linear velocity
+    velocity: { x:0, y:0, z:0 }, // Linear velocity
 		vertices : {}, // Vertex container
 		vertexVisibility : false,
 		vertexStyle : {
@@ -270,6 +270,12 @@ var SimpleMesh = function( opts ) {
 		// Reset
 		this.reset();
 	}
+
+  this.shiftOrigin = function( velocity ) {
+    this.origin.x += velocity.x;
+    this.origin.y += velocity.y;
+    this.origin.z += velocity.z;
+  }
 
 	this.rotateX = function( theta ) {
 		this.rotate( 'y', 'z', theta );
