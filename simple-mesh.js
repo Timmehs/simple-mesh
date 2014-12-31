@@ -243,6 +243,9 @@ var SimpleMesh = function( opts ) {
 		this.rotateY( this.theta.y );
 		this.rotateZ( this.theta.z );
 
+    // Update origin according to velocity
+    this.shiftOrigin( this.velocity );
+
 		// Translate
 		this.translate( this.origin );
 
