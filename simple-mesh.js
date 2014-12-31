@@ -1,11 +1,11 @@
 /*!
  * SimpleMesh
  * Copyright (c) 2013 Eric Johnson
- * Version 0.5 
+ * Version 0.5
  * Licensed under the MIT license
  * http://ericjohnson.me
  */
- 
+
 /* *
 * SimpleMesh namespace + constructor
 */
@@ -23,6 +23,7 @@ var SimpleMesh = function( opts ) {
 		fog : false,
 		origin : { x:0, y:0, z:0 },
 		theta : { x:0, y:0, z:0 }, // Rotation angles in +/- degrees
+    velocity: { x:0, y:0 }, // Linear velocity
 		vertices : {}, // Vertex container
 		vertexVisibility : false,
 		vertexStyle : {
@@ -113,7 +114,7 @@ var SimpleMesh = function( opts ) {
 				edge.a = this.vertices[ edge.a ];
 				edge.b = this.vertices[ edge.b ];
 
-				// 
+				//
 				this.edges[id] = new Edge(edge);
 			}
 
@@ -329,7 +330,7 @@ var Vertex = function ( opts ) {
 	if( opts.hasOwnProperty('y') == false ) throw 'Y is required';
 	if( opts.hasOwnProperty('z') == false ) throw 'Z is required';
 
-	// 
+	//
 	this.oX = opts.x;
 	this.oY = opts.y;
 	this.oZ = opts.z;
@@ -400,7 +401,7 @@ var Edge = function( opts ) {
 		str += Math.round( 100 + ( z * 0.5 ) ) + ', ';
 		str += Math.round( 100 + ( z * 0.5 ) ) + ', '
 		str += Math.round( 100 + ( z * 0.5 ) ) + ')';
-		
+
 		return str;
 	}
 
